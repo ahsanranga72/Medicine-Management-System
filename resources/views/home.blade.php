@@ -25,16 +25,24 @@
     }
 </style>
 @section('content')
+@if(Session::has('message'))
+<div class="alert alert-success" role="alert">
+  {{Session::get('message')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
 <div class="hero-image">
     <div class="hero-text">
         <div class="wraper">
             <div class="callout callout-info">
-                <p>
-                Make a CV to define yourself The right way. Meet thousands of job announcements and employers by the help of your profile with a private extension, which you can share at all social media environments.
-                </p>
+                <h1>
+                    AS CANDIDATE CREATE YOUR CV & APPLY FOR JOBS
+                    <br>
+                    AS EMPLOYEE CREATE & MANAGE JOBS
+                </h1>
             </div>
-            <a href="{{ route('createcv') }}" class="btn btn-block btn-success btn-lg">Create Your CV Now</a>
-            <a href="#" class="btn btn-block btn-success btn-lg">View Jobs</a>
         </div>
     </div>
 </div>

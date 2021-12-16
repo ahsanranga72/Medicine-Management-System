@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CreateCvController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -20,19 +22,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Route::get('/', function () {
 //     return view('master');
 // });
 
 //Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/createcv', [CreateCvController::class, 'CreateCV'])->name('createcv')->middleware('auth');
+Route::get('/addmanufacturecompany', [BlogController::class, 'addmanufacturecompany'])->name('addmanufacturecompany')->middleware('auth');
 Route::post('/storecv', [CreateCvController::class, 'StoreCV'])->name('storecv')->middleware('auth');
-Route::get('/viewcv', [CreateCvController::class, 'ViewCV'])->name('viewcv')->middleware('auth');
-Route::get('/cvtips', [CreateCvController::class, 'cvtips'])->name('cvtips')->middleware('auth');
-
-
-Route::get('/jobtips', [CreateCvController::class, 'jobtips'])->name('jobtips')->middleware('auth');
-Route::get('/feedback', [CreateCvController::class, 'feedback'])->name('feedback')->middleware('auth');
+Route::get('/editcv', [CreateCvController::class, 'EditCV'])->name('editcv')->middleware('auth');
+Route::post('/updatecv', [CreateCvController::class, 'UpdateCV'])->name('updatecv')->middleware('auth');
+Route::get('/viewblog', [BlogController::class, 'viewblog'])->name('viewblog')->middleware('auth');
 
 Auth::routes();
 
