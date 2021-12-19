@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Womens Community</title>
+  <title>Medicine Management System</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,6 +29,9 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+  @yield('css')
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,7 +39,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="{{asset('icon.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
 
     <!-- Navbar -->
@@ -73,8 +76,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="#" class="brand-link">
-        <img src="{{asset('logo.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Womens Community</span>
+        <img src="{{asset('icon.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Medicine Management System</span>
       </a>
 
       <!-- Sidebar -->
@@ -95,58 +98,66 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            @if(Auth::user()->RegistrationAs=='1')
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Management
                   <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">3</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addmanufacturecompany') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Menufacturer companies</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addgenericname') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Generic Names</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addmeditype') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Medicine Type</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Medicine
+                  <i class="fas fa-angle-left right"></i>
                   <span class="badge badge-info right">2</span>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ route('addmedicine') }}" class="nav-link">
                     <i class="far fa-file-text nav-icon"></i>
-                    <p>Add Category</p>
+                    <p>Add Medicine</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('viewmedicine') }}" class="nav-link">
+                    <i class="far fa-file-text nav-icon"></i>
+                    <p>View Medicines</p>
                   </a>
                 </li>
               </ul>
             </li>
-            @endif
-            @if(Auth::user()->RegistrationAs==1 || Auth::user()->RegistrationAs=='')
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Blog
-                  <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">4</span>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('createblog') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>Create Blog</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('viewblog') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>View Blogs</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>Edit Blog</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            @endif
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -206,8 +217,7 @@
   <!-- AdminLTE App -->
   <script src="{{asset('dist/js/adminlte.js')}}"></script>
   <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-  @stack('scripts')
-
+  @stack('js')
 </body>
 
 </html>

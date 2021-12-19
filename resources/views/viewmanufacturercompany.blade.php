@@ -2,9 +2,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>Category list
-            <a class="btn btn-success float-right btn-sm" href="{{route('addcategory')}}">
-                <i class="fa fa-plus-circle"></i>Add Category</a>
+        <h3>Manufacture Company list
+            <a class="btn btn-success float-right btn-sm" href="{{route('addmanufacturecompany')}}">
+                <i class="fa fa-plus-circle"></i>Add Manufacturer Company</a>
         </h3>
     </div>
     <div class="card-body">
@@ -23,13 +23,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $key => $category)
+                @foreach($manufacturer as $key => $manufactur)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$category->name}}</td>
+                    <td>{{$manufactur->man_com_name}}</td>
                     <td>
-                    <a href="{{ route('editcategory',$category->id)}}" class="btn btn-sm btn-primary" title="edit"><i class="fa fa-edit"></i></a>
-                    <a href="{{ route('deletecategory',$category->id)}}" id="delete" class="btn btn-sm btn-danger" title="delete"><i class="fa fa-trash"></i></a>
+                    <a href="#" class="btn btn-sm btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                    <a href="#" id="delete" class="btn btn-sm btn-danger" title="delete"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

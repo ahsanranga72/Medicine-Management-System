@@ -29,6 +29,31 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero-image {
+      background-image: url("hp2.png");
+      background-color: #cccccc;
+      height: 1000px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: Black;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,7 +61,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="{{asset('icon.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
 
     <!-- Navbar -->
@@ -82,57 +107,66 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Management
                   <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">3</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addmanufacturecompany') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Menufacturer companies</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addgenericname') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Generic Names</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addmeditype') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Medicine Type</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Medicine
+                  <i class="fas fa-angle-left right"></i>
                   <span class="badge badge-info right">2</span>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ route('addmedicine') }}" class="nav-link">
                     <i class="far fa-file-text nav-icon"></i>
-                    <p>Add Menufacture company</p>
+                    <p>Add Medicine</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('viewmedicine') }}" class="nav-link">
+                    <i class="far fa-file-text nav-icon"></i>
+                    <p>View Medicines</p>
                   </a>
                 </li>
               </ul>
             </li>
-           
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Blog
-                  <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">4</span>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('createblog') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>Create Blog</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('viewblog') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>View Blogs</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>Edit Blog</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-           
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -145,7 +179,19 @@
 
 
 
-      @yield('content')
+      <div class="hero-image">
+        <div class="hero-text">
+          <div class="wraper">
+            <div class="callout callout-info">
+              <h1>
+                Welcome to Medicine Management 
+                <br>
+                System
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- /.content -->
     </div>
