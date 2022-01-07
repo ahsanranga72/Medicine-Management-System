@@ -107,41 +107,6 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Management
-                  <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">3</span>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('addmanufacturecompany') }}" class="nav-link">
-                    <i class="fas fa-file-alt"></i>
-                    <p>Add Menufacturer companies</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('addgenericname') }}" class="nav-link">
-                    <i class="fas fa-file-alt"></i>
-                    <p>Add Generic Names</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('addmeditype') }}" class="nav-link">
-                    <i class="fas fa-file-alt"></i>
-                    <p>Add Medicine Type</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
@@ -152,12 +117,6 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('addmedicine') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
-                    <p>Add Medicine</p>
-                  </a>
-                </li>
                 <li class="nav-item">
                   <a href="{{ route('viewmedicine') }}" class="nav-link">
                     <i class="far fa-file-text nav-icon"></i>

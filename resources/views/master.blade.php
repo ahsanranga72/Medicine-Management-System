@@ -145,14 +145,38 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{ route('addmedicine') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
+                    <i class="fas fa-file-alt"></i>
                     <p>Add Medicine</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('viewmedicine') }}" class="nav-link">
-                    <i class="far fa-file-text nav-icon"></i>
+                    <i class="fas fa-file-alt"></i>
                     <p>View Medicines</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Prescription
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addprescription') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Prescription</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('viewprescription') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>View Prescription</p>
                   </a>
                 </li>
               </ul>
@@ -217,7 +241,7 @@
   <!-- AdminLTE App -->
   <script src="{{asset('dist/js/adminlte.js')}}"></script>
   <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-  @stack('js')
+  @stack('scripts')
 </body>
 
 </html>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -54,4 +55,12 @@ Route::get('/addmedicine', [MedicineController::class, 'addmedicine'])->name('ad
 Route::post('/storemedicine', [MedicineController::class, 'storemedicine'])->name('storemedicine')->middleware('auth');
 //Route::get('/editcv', [CreateCvController::class, 'EditCV'])->name('editcv')->middleware('auth');
 //Route::post('/updatecv', [CreateCvController::class, 'UpdateCV'])->name('updatecv')->middleware('auth');
-Route::get('/viewmedicine', [MedicineController::class, 'viewmedicine'])->name('viewmedicine')->middleware('auth');
+Route::get('/viewmedicine', [MedicineController::class, 'viewmedicine'])->name('viewmedicine');
+
+Route::get('/addprescription', [PrescriptionController::class, 'addprescription'])->name('addprescription')->middleware('auth');
+Route::get('/get_medi_by_name', [PrescriptionController::class, 'get_medi_by_name'])->name('medi_list')->middleware('auth');
+Route::get('/add_medi_by_id', [PrescriptionController::class, 'add_medi_by_id'])->name('order_medi')->middleware('auth');
+Route::post('/storeprescription', [PrescriptionController::class, 'storeprescription'])->name('storeprescription')->middleware('auth');
+//Route::get('/editcv', [CreateCvController::class, 'EditCV'])->name('editcv')->middleware('auth');
+//Route::post('/updatecv', [CreateCvController::class, 'UpdateCV'])->name('updatecv')->middleware('auth');
+Route::get('/viewprescription', [PrescriptionController::class, 'viewprescription'])->name('viewprescription')->middleware('auth');
