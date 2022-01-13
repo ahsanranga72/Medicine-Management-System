@@ -8,6 +8,8 @@ use App\Models\PrescriptionPatientInf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use DateTimeZone;
 
 class PrescriptionController extends Controller
 {
@@ -16,9 +18,10 @@ class PrescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function viewprescription()
     {
-        //
+        $ppis = PrescriptionPatientInf::where('uuid',auth()->user()->id)->get();
+        return view('viewprescription', compact('ppis'));
     }
 
     /**
@@ -40,7 +43,7 @@ class PrescriptionController extends Controller
             $output = '<ul class="dropdown-menu select-product-list" style="display:block; position:relative">';
             foreach ($data as $row) {
                 $output .= '
-                        <li data-product=' . $row->id .'medi-name='.$row->medi_name. '><a href="#">' . $row->medi_name . ' - ' . $row->gen_name . '</a></li>';
+                        <li data-product=' . $row->id . 'medi-name=' . $row->medi_name . '><a href="#">' . $row->medi_name . ' - ' . $row->gen_name . '</a></li>';
             }
             $output .= '</ul>';
             echo $output;
@@ -52,7 +55,7 @@ class PrescriptionController extends Controller
 
     public function add_medi_by_id(Request $request)
     {
-        
+
         if ($request->get('medi_id')) {
             $medi_id = $request->get('medi_id');
             $data['medi'] = Medicine::where('id', $medi_id)->get()->first();
@@ -70,12 +73,12 @@ class PrescriptionController extends Controller
      */
     public function storeprescription(Request $request)
     {
-        
+
         $c = count($request->all());
-        $c = $c-6;
-        $cs = $c/4;
-        
-        
+        $c = $c - 6;
+        $cs = $c / 4;
+
+
         $ppi = new PrescriptionPatientInf;
         $ppi->uuid = auth()->user()->id;
         $ppi->pat_name = $request->pat_name;
@@ -86,11 +89,11 @@ class PrescriptionController extends Controller
 
         $pat_id = $ppi->id;
 
-        for($i=1;$i<=$cs;$i++){
-            $mdn = "mdn".$i;
-            $bnt = "bnt".$i;
-            $lnt = "lnt".$i;
-            $dnt = "dnt".$i;
+        for ($i = 1; $i <= $cs; $i++) {
+            $mdn = "mdn" . $i;
+            $bnt = "bnt" . $i;
+            $lnt = "lnt" . $i;
+            $dnt = "dnt" . $i;
             $pmi = new PrescriptionMedicineInf;
             $pmi->pat_id = $pat_id;
             $pmi->mdn = $request->$mdn;

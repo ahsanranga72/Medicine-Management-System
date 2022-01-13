@@ -29,6 +29,7 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @notifyCss
 
   @yield('css')
 
@@ -98,7 +99,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
+            @if(Auth::user()->RegistrationAs==2)
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
@@ -183,6 +184,55 @@
             </li>
 
           </ul>
+          @endif
+          @if(Auth::user()->RegistrationAs==1)
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Medicine
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('viewmedicine') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>View Medicines</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Prescription
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('addprescription') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Add Prescription</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('viewprescription') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <p>View Prescription</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          @endif
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -241,6 +291,7 @@
   <!-- AdminLTE App -->
   <script src="{{asset('dist/js/adminlte.js')}}"></script>
   <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+  @notifyJs
   @stack('scripts')
 </body>
 

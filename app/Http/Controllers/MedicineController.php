@@ -62,9 +62,10 @@ class MedicineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function viewmedicinefromwelcome()
     {
-        //
+      $meds = Medicine::all()->sortBy('medi_name');
+      return view('viewmedicinefromwelcome', compact('meds'));
     }
 
     /**

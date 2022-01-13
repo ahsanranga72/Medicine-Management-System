@@ -113,12 +113,11 @@
                 <p>
                   Medicine
                   <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">2</span>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ route('viewmedicine') }}" class="nav-link">
+                  <a href="{{ route('viewmedicinefromwelcome') }}" class="nav-link">
                     <i class="far fa-file-text nav-icon"></i>
                     <p>View Medicines</p>
                   </a>
@@ -135,22 +134,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-
-
-      <div class="hero-image">
-        <div class="hero-text">
-          <div class="wraper">
-            <div class="callout callout-info">
-              <h1>
-                Welcome to Medicine Management 
-                <br>
-                System
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
+    @yield('content');
 
       <!-- /.content -->
     </div>

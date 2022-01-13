@@ -56,6 +56,7 @@ Route::post('/storemedicine', [MedicineController::class, 'storemedicine'])->nam
 //Route::get('/editcv', [CreateCvController::class, 'EditCV'])->name('editcv')->middleware('auth');
 //Route::post('/updatecv', [CreateCvController::class, 'UpdateCV'])->name('updatecv')->middleware('auth');
 Route::get('/viewmedicine', [MedicineController::class, 'viewmedicine'])->name('viewmedicine');
+Route::get('/viewmedicinefromwelcome', [MedicineController::class, 'viewmedicinefromwelcome'])->name('viewmedicinefromwelcome');
 
 Route::get('/addprescription', [PrescriptionController::class, 'addprescription'])->name('addprescription')->middleware('auth');
 Route::get('/get_medi_by_name', [PrescriptionController::class, 'get_medi_by_name'])->name('medi_list')->middleware('auth');
