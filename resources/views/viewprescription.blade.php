@@ -22,6 +22,7 @@
                                     <th>Patient Age</th>
                                     <th>Ref Dr Name</th>
                                     <th>Ref dr Details</th>
+                                    <th>Medicice Details</th>
 
                                 </tr>
                             </thead>
@@ -32,6 +33,28 @@
                                     <td>{{$ppi->pat_age}}</td>
                                     <td>{{$ppi->ref_dr_name}}</td>
                                     <td>{{$ppi->ref_dr_details}}</td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Medicine Name</th>
+                                                    <th>BNT</th>
+                                                    <th>LNT</th>
+                                                    <th>DNT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($pmis as $pmi)
+                                                <tr>
+                                                    <td>{{$pmi->mdn}}</td>
+                                                    <td>{{$pmi->bnt}}</td>
+                                                    <td>{{$pmi->lnt}}</td>
+                                                    <td>{{$pmi->dnt}}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

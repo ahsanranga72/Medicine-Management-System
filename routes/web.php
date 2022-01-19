@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('root');
 });
 
 
@@ -32,6 +32,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/get_medi_datails_for_home', [MedicineController::class, 'get_medi_datails_for_home'])->name('get_medi_datails_for_home');
 
 Route::get('/addmanufacturecompany', [ManagementController::class, 'addmanufacturecompany'])->name('addmanufacturecompany')->middleware('auth');
 Route::post('/storemanufacturecompany', [ManagementController::class, 'storemanufacturecompany'])->name('storemanufacturecompany')->middleware('auth');
@@ -59,8 +60,8 @@ Route::get('/viewmedicine', [MedicineController::class, 'viewmedicine'])->name('
 Route::get('/viewmedicinefromwelcome', [MedicineController::class, 'viewmedicinefromwelcome'])->name('viewmedicinefromwelcome');
 
 Route::get('/addprescription', [PrescriptionController::class, 'addprescription'])->name('addprescription')->middleware('auth');
-Route::get('/get_medi_by_name', [PrescriptionController::class, 'get_medi_by_name'])->name('medi_list')->middleware('auth');
-Route::get('/add_medi_by_id', [PrescriptionController::class, 'add_medi_by_id'])->name('order_medi')->middleware('auth');
+Route::get('/get_medi_by_name', [PrescriptionController::class, 'get_medi_by_name'])->name('medi_list');
+Route::get('/add_medi_by_id', [PrescriptionController::class, 'add_medi_by_id'])->name('order_medi');
 Route::post('/storeprescription', [PrescriptionController::class, 'storeprescription'])->name('storeprescription')->middleware('auth');
 //Route::get('/editcv', [CreateCvController::class, 'EditCV'])->name('editcv')->middleware('auth');
 //Route::post('/updatecv', [CreateCvController::class, 'UpdateCV'])->name('updatecv')->middleware('auth');

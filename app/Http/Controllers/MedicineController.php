@@ -17,7 +17,7 @@ class MedicineController extends Controller
      */
     public function viewmedicine()
     {
-        $meds = Medicine::all()->sortBy('medi_name');
+        $meds = Medicine::all()->sortBy('id');
         return view('viewmedicine', compact('meds'));
     }
 
@@ -64,7 +64,7 @@ class MedicineController extends Controller
      */
     public function viewmedicinefromwelcome()
     {
-      $meds = Medicine::all()->sortBy('medi_name');
+      $meds = Medicine::all()->sortBy('id');
       return view('viewmedicinefromwelcome', compact('meds'));
     }
 
@@ -101,4 +101,17 @@ class MedicineController extends Controller
     {
         //
     }
+
+    public function get_medi_datails_for_home(Request $request)
+    {
+
+        if ($request->get('medi_id')) {
+            $medi_id = $request->get('medi_id');
+            $data['medi'] = Medicine::where('id', $medi_id)->get()->first();
+            $data['c'] = $request->count;
+            return view('add-med-details-to-home', $data);
+            exit(0);
+        }
+    }
+
 }

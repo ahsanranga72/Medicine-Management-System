@@ -9,6 +9,8 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use DateTimeZone;
+use App\Console\Commands\NotifyUsers;
+use App\Models\User;
 
 class Kernel extends ConsoleKernel
 {
@@ -18,7 +20,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        NotifyUsers::class,
     ];
 
     /**
@@ -29,41 +31,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
+        // $schedule->call(function () {
+        //    notify()->success('Laravel Notify is Breakfast!');
+        // })->everyMinute();
 
-            $ui = auth()->user()->id;
-            $pis = PrescriptionPatientInf::where('uuid', $ui)->get();
-            foreach ($pis as $pi) {
-                $p = $pi->id;
-                $mis = PrescriptionMedicineInf::where('pat_id', $p)->get();
+        //Here you can execute the command once every minute
+        $schedule->command('users:notify')->everyMinute();
 
-                foreach ($mis as $ms) {
-                    $bnt = $ms->bnt;
-                    $lnt = $ms->lnt;
-                    $dnt = $ms->dnt;
-                    $date = Carbon::now();
-                    $tz = new DateTimeZone('Asia/Dhaka'); // or whatever zone you're after
-                    $date->setTimezone($tz);
-                    $date = ($date->set('H:i:s'));
-                    error_log($date);
-                    error_log($bnt);
-
-
-                    // if ($bnt == $date) {
-                    //     notify()->success('Laravel Notify is awesome!');
-                    // }
-
-                    // if ($lnt == $date) {
-                    //     notify()->success('Laravel Notify is awesome!');
-                    // }
-
-                    // if ($dnt == $date) {
-                    //   notify()->success('Laravel Notify is awesome!');
-                    // }
-                }
-            }
-            
-        })->everyMinute();
     }
 
     /**

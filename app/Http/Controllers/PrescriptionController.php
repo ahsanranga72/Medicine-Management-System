@@ -21,7 +21,15 @@ class PrescriptionController extends Controller
     public function viewprescription()
     {
         $ppis = PrescriptionPatientInf::where('uuid',auth()->user()->id)->get();
-        return view('viewprescription', compact('ppis'));
+        foreach($ppis as $ppi){
+            $ppi_id = $ppi->id;
+            $pmis = PrescriptionMedicineInf::where('pat_id',$ppi_id)->get();
+        }
+
+        //dd($ppis,$pmis);
+
+        
+        return view('viewprescription', compact('ppis','pmis'));
     }
 
     /**

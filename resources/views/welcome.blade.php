@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Medicine Management System</title>
+  <title>Design And Implementation of a Medicine Management System</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,31 +29,7 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .hero-image {
-      background-image: url("hp2.png");
-      background-color: #cccccc;
-      height: 1000px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-    }
-
-    .hero-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: Black;
-    }
-  </style>
+  @yield('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -98,7 +74,7 @@
       <!-- Brand Logo -->
       <a href="#" class="brand-link">
         <img src="{{asset('icon.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Medicine<br>Management System</span>
+        <span class="brand-text font-weight-light">DIMMS</span>
       </a>
 
       <!-- Sidebar -->
@@ -134,7 +110,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-    @yield('content');
+      @yield('content')
 
       <!-- /.content -->
     </div>

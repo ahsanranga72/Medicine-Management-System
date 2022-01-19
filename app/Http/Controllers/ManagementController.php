@@ -18,6 +18,7 @@ class ManagementController extends Controller
     {
         $manufacturer = Manufacturer::all();
         //var_dump($manufacturer);
+        notify()->success('Laravel Notify is Breakfast!');
         return view('viewmanufacturercompany', compact('manufacturer'));
     }
 
